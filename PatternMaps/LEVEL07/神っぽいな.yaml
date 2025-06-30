@@ -1,0 +1,9 @@
+options:
+  bpm: 142
+patterns:
+- d..k.kk.k.kk..k.
+- d.kk..k...k.k...
+- d..k.kd.k.kk..k.
+- d.kk..d...k.k...
+- (d.k.dk.k.k.kd.k.)*3
+- (d.k.dk.kdk.kd.k.)*3

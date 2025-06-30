@@ -1,0 +1,5 @@
+description: Test your monitor and sound is synced
+options:
+  minimumNotes: 64
+patterns:
+- k...d...d...d...

@@ -1,0 +1,10 @@
+options:
+  bpm: 150
+patterns:
+- (kkdd)*8
+- dddd dddd kkkk kkkk dddd dddd kkddkkdd
+- dddd(kddd)*7
+- kkkk(dkkk)*7
+- (d)*16(k)*16
+- (ddkk)*6(dkdk)*2
+- (dk)*16

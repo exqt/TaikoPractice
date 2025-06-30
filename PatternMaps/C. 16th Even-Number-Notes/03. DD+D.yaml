@@ -1,0 +1,4 @@
+options:
+  minimumNotes: 100
+patterns:
+- <4>{dd.dd.d.,d.dd.dd.,dd.d.dd.}*4

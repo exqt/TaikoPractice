@@ -1,0 +1,4 @@
+options:
+  minimumNotes: 100
+patterns:
+- (dk.kd., kd.dk.)*2d...

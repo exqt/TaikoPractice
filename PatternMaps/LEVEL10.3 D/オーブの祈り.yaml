@@ -1,0 +1,4 @@
+options:
+  bpm: 156
+patterns:
+- <3>kdd<4>kdddkddd<3>kdd (<4>kk<6>ddd)*4 <4>k...k...kkddkkdd<1>....

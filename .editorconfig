@@ -1,0 +1,2 @@
+# Warn about unnecessary using directives (IDE0005)
+dotnet_diagnostic.IDE0005.severity = error

@@ -1,0 +1,6 @@
+options:
+  bpm: 200
+  minimumNotes: 300
+patterns:
+- d...k...d.d.k...d.ddk.d.k.d.ddk.k...d...k.k.d.k.d.k.ddkdd.d.k...
+- d...k...d.d.k.d.k.d.k.d.ddd.k.d.k.kkd.k.k.d.k.d.d.dkkkdkd.k.d.k.

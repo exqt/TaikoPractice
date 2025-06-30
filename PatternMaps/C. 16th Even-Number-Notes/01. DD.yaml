@@ -1,0 +1,4 @@
+options:
+  minimumNotes: 100
+patterns:
+- (dd.)*4d...

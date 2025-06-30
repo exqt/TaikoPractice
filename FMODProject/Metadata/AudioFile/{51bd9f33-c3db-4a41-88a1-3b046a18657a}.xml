@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{51bd9f33-c3db-4a41-88a1-3b046a18657a}">
+		<property name="assetPath">
+			<value>ui-pop-sound-316482.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.25848072562358276</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d7bd9b47-5cce-4f5e-9dbd-817708c67569}</destination>
+		</relationship>
+	</object>
+</objects>

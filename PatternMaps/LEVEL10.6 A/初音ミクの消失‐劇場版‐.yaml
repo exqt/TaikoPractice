@@ -1,0 +1,5 @@
+options:
+  bpm: 200
+patterns:
+- (<3>ddkddkddk<6>ddd.k.)*2 <4>(ddkk)*4 (ddkkdkdk)*2 (<6>ddd<4>kkddkk)*2 (<6>ddd<4>kkdkdk)*2 (<6>ddd<4>kk)*4 (<4>dkdk<6>ddd<4>kk)*2<1>....
+

@@ -1,0 +1,7 @@
+options:
+  bpm: 124
+patterns:
+- "d.d.k.dd..d.k.dkd..dk.d.d.<6>kkk<4>d.k.
+   d..dk.d.d..dk.d.d.ddk.d.ddddkkkkd.d.k.dd..d.k.dkd..d..k.d.<6>kkk<4>d.k.
+   d.<6>ddd<4>k.d.d.<6>ddd<4>k.d.d..dk.d.ddddkkkk<1>d..."
+- d..dk.ddd.kd.dk.d..dk.ddd.ddk.ddd.d.k.k...d.k.kkd.ddkkd.k.kkd.ddd..dk.ddd.kd.dk.d..dk.ddd.ddk.kkd.d.k.k...d.k.kkd.ddkkd.kkddkkd.d..d..d.d...k...

@@ -1,0 +1,4 @@
+options:
+  minimumNotes: 60
+patterns:
+- <2>{?}*15.

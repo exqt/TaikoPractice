@@ -1,0 +1,16 @@
+description: 2025 10단 곡
+options:
+  bpm: 150
+patterns:
+# 4-6
+- <1>d.<4>d...<3>kkkdddkkddddkkd<6>ddddddkkkkkk<3>dddddd
+# 26-35
+- "d...d...<6>kkk<4>dddddd
+  d.k.k.<6>kkk<4>ddddkkkk d.k.k.<6>kkk<4>ddddkkdk <4>d.k.k.<6>kkk<4>ddddkkdd <4>d.<6>kkk<4>d.dd<6>kkk<4>ddkkdd
+  d.kkddkkddddkkkk d.kkddkkddddkkdk d.kkddkk<6>dddddd<4>kkdd d.k.k.ddkkddkkdd
+  <1>d.<4>kk<6>ddd<1>k"
+# 36
+- "ddkdddkdddkkddkk ddkdddkddkkddkkd ddkdddkdkkddkkdd ddkdddkd<6>kddddd<4>kddd
+  ddkkddkkdkkdkkdk ddkkddkkdkkdkkdk kddkddkdkddkddk. k..k..k.kk<6>ddd<4>kk<6>ddd
+  <4>ddkdddkdddkkddkk ddkdddkddkkddkkd ddkdddkdkkddkkdd ddkdddkd<6>kddddd<4>kddd
+  ddkkddkkdkkkdkkkddkkddkk<6>kkkddddddd..<4>d..d..d.d..d..d."

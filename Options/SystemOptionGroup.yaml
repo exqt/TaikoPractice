@@ -1,0 +1,5 @@
+audioBackend: WASAPI
+metronomeVolume: 1
+hitSoundVolume: 1
+judgeOffset: 0
+metronomeOffset: -10

@@ -1,0 +1,4 @@
+options:
+  minimumNotes: 100
+patterns:
+- (?)*5.(?)*5.....

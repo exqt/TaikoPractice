@@ -1,0 +1,4 @@
+options:
+  minimumNotes: 100
+patterns:
+- <4>(ddddk., kkkkd.)*2....

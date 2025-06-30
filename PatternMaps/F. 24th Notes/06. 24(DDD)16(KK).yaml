@@ -1,0 +1,4 @@
+options:
+  minimumNotes: 100
+patterns:
+- (<6>ddd<4>kk)*4

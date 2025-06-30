@@ -1,0 +1,7 @@
+options:
+  bpm: 300
+patterns:
+- d.k.d.k.d.k.d.kkddddkkkkddddkkkkddkkddkkdkkkkkkk<1>dd..
+- d.d.d...dkkkddkk k.k.d.d.k.k.d.d. kkkkddddkkkkddddkkddkkddkkkkdddd<1>d.k.
+- d.k.d.k.kd.kkdkk d.(k)*14 (d)*16 (kkkkkkkkdddddddd)*2(kkkkdddd)*2 (kd)*8 <1>....
+- ddkdkdkdd...dkddkddkd... kdddkdddkddkddkddkddkddk (dk)*8 <1>....

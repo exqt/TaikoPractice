@@ -1,0 +1,6 @@
+options:
+  minimumNotes: 100
+patterns:
+- <6>(dddk..)*3......
+- <6>(kkkd..)*3......
+

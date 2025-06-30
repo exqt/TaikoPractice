@@ -1,0 +1,5 @@
+options:
+  bpm: 200
+patterns:
+- (dddd)*12(ddddkkkk)*2(dddd)*8(ddddddddkkkkkkkk)*2(dddd)*12(ddddkkkk)*2(dddd)*8(ddddddddkkkkkkkk)*2
+- <3>(ddd)*4(kkk)*4 <4>(ddddddddkkkkkkkk)*2(ddddkkkk)*3(dk)*4

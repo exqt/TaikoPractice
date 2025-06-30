@@ -1,0 +1,4 @@
+options:
+  bpm: 222
+patterns:
+- (dkk)*10dk(dkk)*10d.<1>d...

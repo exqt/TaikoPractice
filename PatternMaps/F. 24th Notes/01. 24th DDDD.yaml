@@ -1,0 +1,5 @@
+options:
+  minimumNotes: 100
+patterns:
+- <6>(dddd..)*3......
+
