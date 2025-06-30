@@ -82,7 +82,7 @@ public partial class PatternPracticeScene : MonoBehaviour
     readonly ConcurrentQueue<SongPlay.NoteJudge> judgeQueue = new();
 
     float targetAccuracy = 0.0f;
-    OnFailAction onFailTargetAccuracy = OnFailAction.None;
+    OnFailAction onFail = OnFailAction.None;
 
     ReadOnlyDictionary<GameStateType, PatternPracticeState> stateMap;
 
@@ -117,7 +117,7 @@ public partial class PatternPracticeScene : MonoBehaviour
         var speed = option?.speed ?? 1f;
         var minimumNotes = option?.minimumNotes ?? 10;
         targetAccuracy = option?.targetAccuracy ?? 0.0f;
-        onFailTargetAccuracy = option?.onFail ?? OnFailAction.None;
+        onFail = option?.onFail ?? OnFailAction.None;
         var detarame = option?.detarame ?? false;
 
         var (_notes, intervalStarts) = patternLanguage.GetNotes(
@@ -302,28 +302,28 @@ public partial class PatternPracticeScene : MonoBehaviour
 
     public void SetFail()
     {
-        if (onFailTargetAccuracy == OnFailAction.None) return;
+        if (onFail == OnFailAction.None) return;
         iconIndicatorUI.SetNoCrownIcon(true);
 
-        if (onFailTargetAccuracy == OnFailAction.Result)
+        if (onFail == OnFailAction.Result)
         {
             ChangeState(GameStateType.Finished);
         }
-        else if (onFailTargetAccuracy == OnFailAction.RestartMap)
+        else if (onFail == OnFailAction.RestartMap)
         {
             PatternPracticeSceneContext.Instance.songBeginTime = 0;
             ChangeState(GameStateType.Finished);
             SceneUtil.ReloadCurrentScene();
         }
-        else if (onFailTargetAccuracy == OnFailAction.RestartPattern ||
-            onFailTargetAccuracy == OnFailAction.RestartBar)
+        else if (onFail == OnFailAction.RestartPattern ||
+            onFail == OnFailAction.RestartBar)
         {
             SetRestartPoint();
             SceneUtil.ReloadCurrentScene();
         }
         else
         {
-            Debug.LogError($"Unknown on fail action: {onFailTargetAccuracy}");
+            Debug.LogError($"Unknown on fail action: {onFail}");
         }
     }
 
@@ -346,7 +346,7 @@ public partial class PatternPracticeScene : MonoBehaviour
         var note = fumen.notes[index];
         var failedTime = note.time;
 
-        if (onFailTargetAccuracy == OnFailAction.RestartBar)
+        if (onFail == OnFailAction.RestartBar)
         {
             // Restart at the beginning of the bar
             double beatInterval = 60f / songPlay.bpm;
@@ -355,7 +355,7 @@ public partial class PatternPracticeScene : MonoBehaviour
             PatternPracticeSceneContext.Instance.songBeginTime = barStartTime;
             return;
         }
-        else if (onFailTargetAccuracy == OnFailAction.RestartPattern)
+        else if (onFail == OnFailAction.RestartPattern)
         {
             double restartIntervalBeginTime = fumen.intervalBeginTime[0];
             foreach (var beginTime in fumen.intervalBeginTime)
