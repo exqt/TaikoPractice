@@ -36,7 +36,7 @@ public class JudgeStatistic
 
     public float Accuracy
     {
-        get => validCount == 0 ? 0 : (2 * NGood + NOk) / (2f * totalNotes);
+        get => validCount == 0 ? 0 : (2 * NGood + NOk) / (2f * validCount);
     }
 
     public float DecrementalAccuracy
