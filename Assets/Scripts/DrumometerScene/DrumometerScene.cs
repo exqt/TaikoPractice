@@ -106,7 +106,8 @@ public partial class DrumometerScene : MonoBehaviour
     void Update()
     {
         currentState.Update();
-        frameIndicatorUI.SetData((int)(Time.deltaTime * 1000), inputThread.FPS);
+        frameIndicatorUI.SetData(
+            (int)(Time.deltaTime * 1000), inputThread?.FPS ?? 0);
         ProcessQueue();
     }
 
