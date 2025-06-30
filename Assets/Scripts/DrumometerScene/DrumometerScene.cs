@@ -28,6 +28,7 @@ public partial class DrumometerScene : MonoBehaviour
     InputThread inputThread;
 
     public DrumUI drumUI;
+    public FrameIndicatorUI frameIndicatorUI;
 
     // === Gameplay data ===
     int hitCount = 0;
@@ -105,6 +106,7 @@ public partial class DrumometerScene : MonoBehaviour
     void Update()
     {
         currentState.Update();
+        frameIndicatorUI.SetData((int)(Time.deltaTime * 1000), inputThread.FPS);
         ProcessQueue();
     }
 

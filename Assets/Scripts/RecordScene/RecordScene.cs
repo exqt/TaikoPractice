@@ -39,6 +39,7 @@ public partial class RecordScene : MonoBehaviour
 
     #region UI
     public GameObject uiPausePanel;
+    public FrameIndicatorUI frameIndicatorUI;
     #endregion
     readonly float offset = 0.000f;
 
@@ -176,6 +177,7 @@ public partial class RecordScene : MonoBehaviour
         {
             if (noteQueue.TryDequeue(out var note)) laneContainer.AddNote(note);
         }
+        frameIndicatorUI.SetData((int)(Time.deltaTime * 1000), inputThread.FPS);
     }
 
     public void OnSelectResume()

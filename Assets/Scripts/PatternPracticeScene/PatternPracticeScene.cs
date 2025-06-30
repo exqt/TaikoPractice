@@ -166,10 +166,7 @@ public partial class PatternPracticeScene : MonoBehaviour
     void Update()
     {
         currentState.Update();
-        frameIndicatorUI.SetData(
-            inputThread.FPS,
-            (int)(Time.deltaTime * 1000)
-        );
+        frameIndicatorUI.SetData((int)(Time.deltaTime * 1000), inputThread.FPS);
     }
 
     void OnDestroy()
