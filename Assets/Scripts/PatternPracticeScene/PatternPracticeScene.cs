@@ -120,7 +120,10 @@ public partial class PatternPracticeScene : MonoBehaviour
         onFailTargetAccuracy = option?.onFail ?? OnFailAction.None;
         var detarame = option?.detarame ?? false;
 
-        var (_notes, intervalStarts) = patternLanguage.GetNotes(bpm, minimumNotes, 4, detarame);
+        var (_notes, intervalStarts) = patternLanguage.GetNotes(
+            bpm, minimumNotes, 4, detarame,
+            patternShuffle: option?.patternShuffle ?? PatternShuffle.None
+        );
 
         //
         var notes = new List<Fumen.Note>();

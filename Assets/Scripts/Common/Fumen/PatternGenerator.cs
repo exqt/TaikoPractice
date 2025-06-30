@@ -194,7 +194,9 @@ public class PatternLanguage
     }
 
     public (List<Fumen.Note>, List<double>) GetNotes(
-        double bpm, int nMinNotes, double openingBeats = 4, bool deterame = false)
+        double bpm, int nMinNotes, double openingBeats = 4, bool deterame = false,
+        PatternShuffle patternShuffle = PatternShuffle.None
+        )
     {
         double beatInterval = 60f / bpm;
 
@@ -211,12 +213,12 @@ public class PatternLanguage
         {
             var shuffledPatterns = new List<string>(patterns);
 
-            if (PatternPracticeOptionGroup.Instance.patternShuffle != PatternShuffle.None)
+            if (patternShuffle != PatternShuffle.None)
             {
                 shuffledPatterns = Shuffle(shuffledPatterns, rng);
             }
 
-            if (PatternPracticeOptionGroup.Instance.patternShuffle == PatternShuffle.FullRandom)
+            if (patternShuffle == PatternShuffle.FullRandom)
             {
                 while (shuffledPatterns.Count > 1) shuffledPatterns.RemoveAt(
                     shuffledPatterns.Count - 1
