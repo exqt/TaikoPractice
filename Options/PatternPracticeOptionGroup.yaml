@@ -1,8 +1,8 @@
 bpm: 150
 speed: 1
 minimumNotes: 300
-targetAccuracy: 0.8
+targetAccuracy: 0
 badFail: false
-onFail: RestartBar
+onFail: None
 detarame: false
 patternShuffle: None
