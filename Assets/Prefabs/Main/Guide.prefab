@@ -326,8 +326,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 71.892}
-  m_SizeDelta: {x: 0, y: -462.163}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7395970050179756426
 CanvasRenderer:
@@ -357,7 +357,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hello world!
+  m_text: "F,J : Don, Select / D, K : Ka, Move\n1 : Toggle Metronome Sound / 2 :
+    Toggle Hit Sound \n3 : Toggle Horizontal Lane / 4 : Toggle Veritcal Lane\nA :
+    Auto Play \nHit Right Ka 8 Times in a row : Open Pause Panel"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9c318b4d35c276e49a9bf832b7a4740a, type: 2}
   m_sharedMaterial: {fileID: -4278844047253114550, guid: 9c318b4d35c276e49a9bf832b7a4740a, type: 2}
@@ -392,7 +394,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -436,9 +438,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 307199676991990618, guid: 95bfc1ef8b0f0fd48a9561fb01ec997a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 307199676991990618, guid: 95bfc1ef8b0f0fd48a9561fb01ec997a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.83127975
+      objectReference: {fileID: 0}
+    - target: {fileID: 307199676991990618, guid: 95bfc1ef8b0f0fd48a9561fb01ec997a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.51174796
+      objectReference: {fileID: 0}
+    - target: {fileID: 553459214117328955, guid: 95bfc1ef8b0f0fd48a9561fb01ec997a, type: 3}
+      propertyPath: m_text
+      value: Guide
+      objectReference: {fileID: 0}
     - target: {fileID: 4866346915170476938, guid: 95bfc1ef8b0f0fd48a9561fb01ec997a, type: 3}
       propertyPath: m_Name
-      value: Welcome Variant
+      value: Guide
       objectReference: {fileID: 0}
     - target: {fileID: 6602258221433550039, guid: 95bfc1ef8b0f0fd48a9561fb01ec997a, type: 3}
       propertyPath: m_Pivot.x
@@ -502,7 +520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6602258221433550039, guid: 95bfc1ef8b0f0fd48a9561fb01ec997a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -3150
+      value: -2000
       objectReference: {fileID: 0}
     - target: {fileID: 6602258221433550039, guid: 95bfc1ef8b0f0fd48a9561fb01ec997a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -574,6 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: {fileID: 3411653772212483861}
+  sub: {fileID: 0}
   contentPlaceholder: {fileID: 8360634596618543231}
   contentPrefab: {fileID: 0}
   content: {fileID: 3252936358333248219}
