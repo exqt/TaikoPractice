@@ -61,15 +61,10 @@ public class FMODMetronome
     }
 
 #region
-    /// <summary>
-    /// Creates a metronome sound sample based on the specified BPM.
-    /// <param name="bpm">Beats per minute for the metronome.</param>
-    /// <param name="offset">Optional offset in seconds to start the metronome sound.</param>
-    /// <returns>Array of float samples representing the metronome sound.</returns>
-    /// </summary>
     float[] CreateMetronomeSoundSamples(float bpm)
     {
         int beats = 4;
+        int repeatCount = 16; // Repeat the measure 16 times
         float beatIntervalSec = 60f / bpm;
         float beatDuration = beatIntervalSec * beats; // 4 beats for a full measure
 
@@ -79,9 +74,9 @@ public class FMODMetronome
         FMOD.System system = RuntimeManager.CoreSystem;
         system.getSoftwareFormat(out sampleRate, out _, out _);
 
-        int numSamples = (int)(beatDuration * sampleRate);
+        int totalSamples = (int)(beatDuration * sampleRate * repeatCount);
 
-        float[] samples = new float[numSamples];
+        float[] samples = new float[totalSamples];
 
         void ApplySineWave(int start, int end, float frequency)
         {
@@ -98,12 +93,16 @@ public class FMODMetronome
         float soundDuration = 0.01f;
         int soundDurationSamples = (int)(soundDuration * sampleRate);
 
-        for (int i = 0; i < beats; i++)
+        for (int repeat = 0; repeat < repeatCount; repeat++)
         {
-            int start = i * samplesPerBeat;
-            int end = start + soundDurationSamples;
-            if (end > numSamples) end = numSamples; // Prevent overflow
-            ApplySineWave(start, end, i == 0 ? firstHz : secondHz); // A4 note (440 Hz)
+            int measureStart = (int)(repeat * beatDuration * sampleRate);
+            for (int i = 0; i < beats; i++)
+            {
+                int start = measureStart + i * samplesPerBeat;
+                int end = start + soundDurationSamples;
+                if (end > totalSamples) end = totalSamples; // Prevent overflow
+                ApplySineWave(start, end, i == 0 ? firstHz : secondHz); // A4 note (440 Hz)
+            }
         }
 
         return samples;
