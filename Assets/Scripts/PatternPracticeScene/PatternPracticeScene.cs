@@ -393,7 +393,7 @@ public partial class PatternPracticeScene : MonoBehaviour
 
     public void OnPressShowRecord()
     {
-        RecordSceneContext.Instance.optionGroup = new() { bpm = songPlay.bpm };
+        RecordSceneContext.Instance.bpm = songPlay.bpm;
         RecordSceneContext.Instance.songPlay = songPlay;
         SceneUtil.LoadScene("RecordScene");
     }

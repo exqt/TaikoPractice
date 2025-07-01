@@ -114,8 +114,8 @@ public class MainScene : MonoBehaviour
 
     public void OnPressRecordPlay()
     {
-        RecordSceneContext.Instance.optionGroup =
-            recordOptionGroup.GetOptionGroup() as RecordingOptionGroup;
+        var globalPlayOption = PatternPracticeOptionGroup.Load();
+        RecordSceneContext.Instance.bpm = globalPlayOption?.bpm ?? 120;
         RecordSceneContext.Instance.songPlay = null;
         SceneUtil.LoadScene("RecordScene");
     }

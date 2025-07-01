@@ -114,18 +114,15 @@ public class UIOptionGroup : MonoBehaviour, ITaikoUIMove
         uIMainListItemContent = GetComponentInParent<UIMainListItemContent>();
         options = GetComponentsInChildren<UIOption>();
 
+        var globalPlayOption = PatternPracticeOptionGroup.Load();
         switch (groupName)
         {
             case "PatternPractice":
-                var globalPlayOption = PatternPracticeOptionGroup.Load();
                 BindOptions(globalPlayOption);
                 break;
             case "SystemSetting":
                 var systemSetting = SystemOptionGroup.Load();
                 BindOptions(systemSetting);
-                break;
-            case "Recording":
-                BindOptions(new RecordingOptionGroup());
                 break;
             default:
                 Debug.LogError($"Unknown group name: {groupName}");

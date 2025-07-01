@@ -3,16 +3,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Debug = UnityEngine.Debug;
 
-public class RecordingOptionGroup : OptionGroup
-{
-    [OptionDesc("BPM", "The speed of the music in beats per minute.", "BPM")]
-    public double bpm = 120;
-}
-
 public class RecordSceneContext : SceneContext<RecordSceneContext>
 {
-    public RecordingOptionGroup optionGroup;
-
+    public double bpm;
     public SongPlay songPlay;
 }
 
@@ -138,7 +131,7 @@ public partial class RecordScene : MonoBehaviour
     {
         var context = RecordSceneContext.Instance;
 
-        var bpm = context?.optionGroup?.bpm ?? 120;
+        var bpm = context?.bpm ?? 120;
 
         laneContainer.bpm = bpm;
 
