@@ -27,18 +27,22 @@ public class UIMainListItemContentPatternPractice : UIMainListItemContent
 
         desc.text = fumenPatternMap.Description;
 
-        if (fumenPatternMap.options.bpm != null)
+        if (fumenPatternMap?.options?.bpm != null)
             uiOptionGroup.options[0].SetValue(fumenPatternMap.options.bpm);
-        if (fumenPatternMap.options.speed != null)
+        if (fumenPatternMap?.options?.speed != null)
             uiOptionGroup.options[1].SetValue(fumenPatternMap.options.speed);
-        if (fumenPatternMap.options.minimumNotes != null)
+        if (fumenPatternMap?.options?.minimumNotes != null)
             uiOptionGroup.options[2].SetValue(fumenPatternMap.options.minimumNotes);
-        if (fumenPatternMap.options.targetAccuracy != null)
+        if (fumenPatternMap?.options?.targetAccuracy != null)
             uiOptionGroup.options[3].SetValue(fumenPatternMap.options.targetAccuracy);
-        if (fumenPatternMap.options.onFail != null)
-            uiOptionGroup.options[4].SetValue(fumenPatternMap.options.onFail);
-        if (fumenPatternMap.options.detarame != null)
-            uiOptionGroup.options[5].SetValue(fumenPatternMap.options.detarame);
+        if (fumenPatternMap?.options?.badFail != null)
+            uiOptionGroup.options[4].SetValue(fumenPatternMap.options.badFail);
+        if (fumenPatternMap?.options?.onFail != null)
+            uiOptionGroup.options[5].SetValue(fumenPatternMap.options.onFail);
+        if (fumenPatternMap?.options?.detarame != null)
+            uiOptionGroup.options[6].SetValue(fumenPatternMap.options.detarame);
+        if (fumenPatternMap?.options?.patternShuffle != null)
+            uiOptionGroup.options[7].SetValue(fumenPatternMap.options.patternShuffle);
     }
 
     public void OnPressPlay()
