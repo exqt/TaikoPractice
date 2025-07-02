@@ -4,5 +4,5 @@ minimumNotes: 300
 targetAccuracy: 0
 badFail: false
 onFail: None
-detarame: false
+modifier: None
 patternShuffle: None
