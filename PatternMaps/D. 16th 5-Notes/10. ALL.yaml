@@ -1,4 +1,7 @@
 options:
+  badFail: true
+  onFail: RestartBar
+  patternShuffle: Bag
   minimumNotes: 320
 patterns:
 - (ddddd.)*2....

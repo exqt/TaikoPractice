@@ -1,7 +1,0 @@
-description:
-  "Several lines,
-  Leading whitespace"
-options:
-  minimumNotes: 4
-patterns:
-- k...d...d...d...

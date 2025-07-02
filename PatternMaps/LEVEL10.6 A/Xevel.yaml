@@ -1,0 +1,12 @@
+options:
+  bpm: 185
+patterns:
+# 27
+- <1>d.<4>(d)*8 kkdkkdkkddkddkddddddkddddkddkddkdkdkddkdkkdkkdddkkdkkdk.<1>d.
+# 86
+- "....d.d.kkd.d.kdkkdkkddkddkdkkd.d.kdd.dkkddkdkkdk.dkkddkddkdkkd.
+   d.kkd.d.kddkdkkdkkdkkddkddkdkkd.d.kdd.kddkkddkkddkkd<6>kkk<4>ddkkddkkdd
+   ddkk<6>ddd<4>kkdkkdkkdddkddkddkdkddkddkdkkdkkdkdkkdkkdddkkddkkdddkk<6>dkdkdk<1>...."
+
+
+
