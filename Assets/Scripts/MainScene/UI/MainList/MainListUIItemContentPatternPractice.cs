@@ -39,8 +39,8 @@ public class UIMainListItemContentPatternPractice : UIMainListItemContent
             uiOptionGroup.options[4].SetValue(fumenPatternMap.options.badFail);
         if (fumenPatternMap?.options?.onFail != null)
             uiOptionGroup.options[5].SetValue(fumenPatternMap.options.onFail);
-        if (fumenPatternMap?.options?.detarame != null)
-            uiOptionGroup.options[6].SetValue(fumenPatternMap.options.detarame);
+        if (fumenPatternMap?.options?.modifier != null)
+            uiOptionGroup.options[6].SetValue(fumenPatternMap.options.modifier);
         if (fumenPatternMap?.options?.patternShuffle != null)
             uiOptionGroup.options[7].SetValue(fumenPatternMap.options.patternShuffle);
     }

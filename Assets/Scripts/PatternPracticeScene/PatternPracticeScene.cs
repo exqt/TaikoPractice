@@ -119,11 +119,11 @@ public partial class PatternPracticeScene : MonoBehaviour
         var minimumNotes = option?.minimumNotes ?? 10;
         targetAccuracy = option?.targetAccuracy ?? 0.0f;
         onFail = option?.onFail ?? OnFailAction.None;
-        var detarame = option?.detarame ?? false;
+        var modifier = option?.modifier ?? NoteModifier.None;
 
         int seed = context.seed;
         var (_notes, intervalStarts) = patternLanguage.GetNotes(
-            bpm, minimumNotes, 4, detarame,
+            bpm, minimumNotes, 4, modifier,
             patternShuffle: option?.patternShuffle ?? PatternShuffle.None,
             seed: seed
         );

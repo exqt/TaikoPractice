@@ -194,7 +194,8 @@ public class PatternLanguage
     }
 
     public (List<Fumen.Note>, List<double>) GetNotes(
-        double bpm, int nMinNotes, double openingBeats = 4, bool deterame = false,
+        double bpm, int nMinNotes, double openingBeats = 4,
+        NoteModifier modifier = NoteModifier.None,
         PatternShuffle patternShuffle = PatternShuffle.None,
         int seed = 0)
     {
@@ -245,12 +246,21 @@ public class PatternLanguage
             }
         }
 
-        if (deterame)
+        if (modifier == NoteModifier.Detarame)
         {
             for (int i = 0; i < notes.Count; i++)
             {
                 var note = notes[i];
                 note.type = rng.Next(2) == 0 ? NoteType.Don : NoteType.Ka;
+                notes[i] = note;
+            }
+        }
+        else if (modifier == NoteModifier.Abekobe)
+        {
+            for (int i = 0; i < notes.Count; i++)
+            {
+                var note = notes[i];
+                note.type = (note.type == NoteType.Don) ? NoteType.Ka : NoteType.Don;
                 notes[i] = note;
             }
         }

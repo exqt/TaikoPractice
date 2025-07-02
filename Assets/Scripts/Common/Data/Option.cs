@@ -28,6 +28,8 @@ public enum PatternShuffle
     FullRandom
 }
 
+public enum NoteModifier { None, Detarame, Abekobe }
+
 public static class OptionChoices
 {
     static List<T> Range<T>(T start, T end, T step)
@@ -64,6 +66,7 @@ public static class OptionChoices
     public static readonly int[] TimeOffsets = Range(-100, 100, 1).ToArray();
 
     public static readonly int[] FastSlowCutOff = Range(1, 25, 1).ToArray();
+    public static readonly NoteModifier[] Modifiers = (NoteModifier[])Enum.GetValues(typeof(NoteModifier));
 }
 
 public class OptionDescAttribute : Attribute
@@ -156,8 +159,8 @@ public class PatternPracticeOptionGroup : OptionGroupGlobal<PatternPracticeOptio
     [OptionDesc("On Fail", "Behavior when failing to meet target accuracy or aborted", "FailBehaviors")]
     public OnFailAction? onFail;
 
-    [OptionDesc("Detarame", "Enable or disable detarame mode", "Booleans")]
-    public bool? detarame;
+    [OptionDesc("Modifier", "Enable or disable modifier mode", "Modifiers")]
+    public NoteModifier? modifier;
 
     [OptionDesc("Pattern Shuffle", "Shuffle patterns in practice mode", "PatternShuffles")]
     public PatternShuffle patternShuffle = PatternShuffle.None;
@@ -171,7 +174,7 @@ public class PatternPracticeOptionGroup : OptionGroupGlobal<PatternPracticeOptio
             minimumNotes = 300,
             targetAccuracy = 0.00f,
             onFail = OnFailAction.None,
-            detarame = false,
+            modifier = NoteModifier.None,
             patternShuffle = PatternShuffle.None
         };
     }
