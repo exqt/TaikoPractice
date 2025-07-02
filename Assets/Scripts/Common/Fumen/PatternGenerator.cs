@@ -195,8 +195,8 @@ public class PatternLanguage
 
     public (List<Fumen.Note>, List<double>) GetNotes(
         double bpm, int nMinNotes, double openingBeats = 4, bool deterame = false,
-        PatternShuffle patternShuffle = PatternShuffle.None
-        )
+        PatternShuffle patternShuffle = PatternShuffle.None,
+        int seed = 0)
     {
         double beatInterval = 60f / bpm;
 
@@ -206,7 +206,7 @@ public class PatternLanguage
         int nNotes = 0;
         double time = openingBeats * beatInterval;
 
-        seed += DateTime.Now.Millisecond;
+        // seed += DateTime.Now.Millisecond;
         Random rng = new(seed);
 
         while (nNotes < nMinNotes)

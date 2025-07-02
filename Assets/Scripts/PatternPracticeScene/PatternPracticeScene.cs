@@ -12,6 +12,7 @@ public class PatternPracticeSceneContext : SceneContext<PatternPracticeSceneCont
     public FumenPatternMap fumenPatternMap;
     public PatternPracticeOptionGroup patternPracticeOptionGroup;
 
+    public int seed = 0;
     public double songBeginTime;
 }
 
@@ -120,9 +121,11 @@ public partial class PatternPracticeScene : MonoBehaviour
         onFail = option?.onFail ?? OnFailAction.None;
         var detarame = option?.detarame ?? false;
 
+        int seed = context.seed;
         var (_notes, intervalStarts) = patternLanguage.GetNotes(
             bpm, minimumNotes, 4, detarame,
-            patternShuffle: option?.patternShuffle ?? PatternShuffle.None
+            patternShuffle: option?.patternShuffle ?? PatternShuffle.None,
+            seed: seed
         );
 
         //

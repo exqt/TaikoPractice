@@ -51,6 +51,7 @@ public class UIMainListItemContentPatternPractice : UIMainListItemContent
         PatternPracticeSceneContext.Instance.patternPracticeOptionGroup =
             (PatternPracticeOptionGroup)uiOptionGroup.GetOptionGroup();
         PatternPracticeSceneContext.Instance.songBeginTime = 0;
+        PatternPracticeSceneContext.Instance.seed = Time.frameCount;
 
         SceneUtil.LoadScene("PatternPracticeScene");
     }
