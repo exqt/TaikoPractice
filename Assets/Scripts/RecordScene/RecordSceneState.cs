@@ -22,10 +22,27 @@ public partial class RecordScene
     public class PlayingState : RecordSceneState
     {
         readonly InputAction escapeAction;
+        readonly ConsecutiveHitWatcher consecutiveHitWatcher1, consecutiveHitWatcher2;
+        readonly InputAction leftKaAction, rightKaAction, leftDonAction, rightDonAction;
         public PlayingState(RecordScene scene, InputActionAsset inputActionAsset)
             : base(scene, inputActionAsset)
         {
             escapeAction = inputActionAsset.FindAction("Escape");
+            consecutiveHitWatcher1 = new ConsecutiveHitWatcher(
+                () => scene.ChangeState(GameState.Moving),
+                TaikoKeyType.LEFT_KA,
+                8
+            );
+            consecutiveHitWatcher2 = new ConsecutiveHitWatcher(
+                () => scene.ChangeState(GameState.Paused),
+                TaikoKeyType.RIGHT_KA,
+                8
+            );
+
+            leftKaAction = inputActionAsset.FindAction("LeftKa");
+            rightKaAction = inputActionAsset.FindAction("RightKa");
+            leftDonAction = inputActionAsset.FindAction("LeftDon");
+            rightDonAction = inputActionAsset.FindAction("RightDon");
         }
 
         public override void Enter()
@@ -39,6 +56,29 @@ public partial class RecordScene
                 scene.uiPausePanel.GetComponent<UIPopup>().Show();
                 scene.ChangeState(GameState.Paused);
             }
+
+
+            if (leftKaAction.triggered)
+            {
+                consecutiveHitWatcher1.HandleHit(TaikoKeyType.LEFT_KA);
+                consecutiveHitWatcher2.HandleHit(TaikoKeyType.LEFT_KA);
+            }
+            if (rightKaAction.triggered)
+            {
+                consecutiveHitWatcher1.HandleHit(TaikoKeyType.RIGHT_KA);
+                consecutiveHitWatcher2.HandleHit(TaikoKeyType.RIGHT_KA);
+            }
+            if (leftDonAction.triggered)
+            {
+                consecutiveHitWatcher1.HandleHit(TaikoKeyType.LEFT_DON);
+                consecutiveHitWatcher2.HandleHit(TaikoKeyType.LEFT_DON);
+            }
+            if (rightDonAction.triggered)
+            {
+                consecutiveHitWatcher1.HandleHit(TaikoKeyType.RIGHT_DON);
+                consecutiveHitWatcher2.HandleHit(TaikoKeyType.RIGHT_DON);
+            }
+
             scene.laneContainer.SetTime(TimeUtil.Time - scene.startTime);
         }
     }
@@ -101,17 +141,14 @@ public partial class RecordScene
         {
             if (movePrevAction.WasPressedThisFrame())
             {
-                AudioManager.Instance.PlaySound("ka");
                 scene.laneContainer.MoveUpLane();
             }
             else if (moveNextAction.WasPressedThisFrame())
             {
-                AudioManager.Instance.PlaySound("ka");
                 scene.laneContainer.MoveDownLane();
             }
             else if (selectAction.WasPressedThisFrame())
             {
-                AudioManager.Instance.PlaySound("dong");
                 SceneUtil.BackToMainScene();
             }
         }

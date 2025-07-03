@@ -5,7 +5,7 @@ using Debug = UnityEngine.Debug;
 
 public class RecordSceneContext : SceneContext<RecordSceneContext>
 {
-    public double bpm;
+    public double bpm = 120;
     public SongPlay songPlay;
 }
 
@@ -40,8 +40,6 @@ public partial class RecordScene : MonoBehaviour
 
     #region  Input
     public InputActionAsset inputActionAsset;
-    InputAction escapeAction;
-    InputAction spaceAction;
     #endregion
 
 
@@ -51,9 +49,6 @@ public partial class RecordScene : MonoBehaviour
     {
         inputThread = new InputThread();
         inputThread.OnKeyPressed += OnKeyInput;
-
-        escapeAction = inputActionAsset.FindAction("Escape");
-        spaceAction = inputActionAsset.FindAction("Space");
 
         stateMap = new(
             new System.Collections.Generic.Dictionary<GameState, RecordSceneState>
