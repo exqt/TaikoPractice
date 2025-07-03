@@ -1,6 +1,0 @@
-options:
-  bpm: 160
-patterns:
-- (dd.dkdd.d.d.kd.dkdddd.ddkd.d....)*2 (dd.dkdd.dkdkddkd.dddk.ddddkdd.k.)*2
-- d...k.d.<6>dddkkkkddkdk<4>d.kdd.k.<6>dddkkd<4>d.k.  <6>ddk<4>kdk.dd<6>ddk<4>kd<6>kkdd..<4>ddkk<6>ddk<4>kdk.<6>kkd<4>d.<6>kkd<1>d...
-- ........<6>dddkkkkdd<4>kd.dk.<6>ddkk..dddkkkdk.k..ddd<4>kdk.dd<6>ddd<4>kk<6>kddd..<4>ddkk<6>ddk<4>kdd.<6>kkdd..kkd<1>d...

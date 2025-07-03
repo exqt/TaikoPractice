@@ -1,5 +1,0 @@
-options:
-  bpm: 256
-patterns:
-- (d.kk)*7d.d.(ddk.k.)*4d...k... (d.kk)*3d.d...d...d...ddk.d.d.kkd.d.kkd.d.(k...)*4..
-- (d.kk)*7d.d.(ddk.k.)*4d...k... (d.kk)*3d.d...d...d...ddk.d.d.dkd.d.dkd.d.d.(d)*8(dk)*4<1>d...
