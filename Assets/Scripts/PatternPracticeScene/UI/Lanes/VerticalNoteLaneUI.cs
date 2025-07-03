@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,8 @@ public class VerticalNoteLaneUI : MonoBehaviour
     public GameObject notePrefab;
     public GameObject[] noteContainer;
     readonly Dictionary<int, GameObject> noteDict = new();
+
+    public TMP_Text comboText;
 
     public GameObject noteOrigin;
 
@@ -45,11 +48,12 @@ public class VerticalNoteLaneUI : MonoBehaviour
 
         var rectTransform = noteOrigin.GetComponent<RectTransform>();
         rectTransform.localPosition = new Vector3(0, (float)x, 0);
+        comboText.text = songPlay.judgeStatistic.Combo.ToString();
 
         for (int i = 0; i < bg.Length; i++)
         {
             laneHitEffect[i] = Mathf.Max(0.0f, laneHitEffect[i] - Time.deltaTime * alphaRate);
-            bg[i].color = new Color(1.0f, 1.0f, 1.0f, Mathf.Pow(laneHitEffect[i] * areaAlpha, 2f));
+            bg[i].color = new Color(bg[i].color.r, bg[i].color.g, bg[i].color.b, Mathf.Pow(laneHitEffect[i] * areaAlpha, 2f));
         }
     }
 
