@@ -1,0 +1,7 @@
+options:
+  bpm: 120
+patterns:
+- <3>d.d<12>dddddd<4>d.<3>d.d<12>dddddd<4>d.<3>d.ddddd.d<12>kkkkkk<4>k.
+- <3>d.k<12>kkkkkk<4>k.<3>d.k<12>kkkkkk<4>k.<3>d.kkkkk.k<12>dddddd<4>d.
+- dkkkdkkkdkkkdkkk<12>(d)*48<1>d...
+
