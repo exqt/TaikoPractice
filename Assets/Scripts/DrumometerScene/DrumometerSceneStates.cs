@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public partial class DrumometerScene
 {
@@ -22,10 +23,12 @@ public partial class DrumometerScene
     {
         ConsecutiveHitWatcher watcher;
         bool quitRequested = false;
+        readonly InputAction escapeAction;
 
-        public RunningState(DrumometerScene scene) : base(scene)
+        public RunningState(DrumometerScene scene, InputActionAsset inputActions) : base(scene)
         {
             watcher = new ConsecutiveHitWatcher(End);
+            escapeAction = inputActions.FindAction("Global/Escape");
         }
 
         public override void Enter()
@@ -37,6 +40,12 @@ public partial class DrumometerScene
 
         public override void Update()
         {
+            if (escapeAction.triggered)
+            {
+                scene.ChangeState(GameStateType.Finished);
+                return;
+            }
+
             var elapsed = TimeUtil.Time - scene.StartTime;
             scene.UpdateUI();
             if (elapsed > scene.Duration) scene.ChangeState(GameStateType.Finished);

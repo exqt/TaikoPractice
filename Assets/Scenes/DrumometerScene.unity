@@ -552,6 +552,7 @@ MonoBehaviour:
   currentBPMText: {fileID: 760748986}
   targetCountText: {fileID: 556903138}
   resultPanel: {fileID: 853352648146342348}
+  inputActionAsset: {fileID: -944628639613478452, guid: 1223ba7d6cf4c9a48aa692074b69ea0b, type: 3}
   drumUI: {fileID: 1523172641}
   frameIndicatorUI: {fileID: 1240992515}
 --- !u!1 &556903136

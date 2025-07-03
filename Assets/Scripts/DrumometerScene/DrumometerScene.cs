@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DrumometerSceneContext : SceneContext<DrumometerSceneContext>
 {
@@ -26,6 +27,7 @@ public partial class DrumometerScene : MonoBehaviour
 
     // === Input and audio ===
     InputThread inputThread;
+    public InputActionAsset inputActionAsset;
 
     public DrumUI drumUI;
     public FrameIndicatorUI frameIndicatorUI;
@@ -64,7 +66,7 @@ public partial class DrumometerScene : MonoBehaviour
         stateMap = new()
         {
             { GameStateType.BeforeStart, new BeforeStartState(this) },
-            { GameStateType.Running, new RunningState(this) },
+            { GameStateType.Running, new RunningState(this, inputActionAsset) },
             { GameStateType.Finished, new FinishedState(this) },
         };
         Duration = DrumometerSceneContext.Instance.duration;
