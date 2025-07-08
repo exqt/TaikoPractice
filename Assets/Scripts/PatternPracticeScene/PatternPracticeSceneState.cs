@@ -106,14 +106,12 @@ public partial class PatternPracticeScene
             if (abortAction.triggered)
             {
                 scene.SetFail();
-                return;
             }
 
             if (scene.songPlay.judgeStatistic.NBad > 0 &&
                 PatternPracticeSceneContext.Instance.patternPracticeOptionGroup.badFail == true)
             {
                 scene.SetFail();
-                return;
             }
 
             var acc = scene.songPlay.judgeStatistic.DecrementalAccuracy;
