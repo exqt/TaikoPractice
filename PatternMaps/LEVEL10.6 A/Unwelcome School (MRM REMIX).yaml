@@ -1,0 +1,8 @@
+options:
+  bpm: 190
+patterns:
+- d...<6>kkkkkkddddddkkkkkkk.....ddddddkkkkkkdddddd<1>d...
+- d...k.kkdd<6>kkk<4>ddkd<6>kkk<4>ddkkd.<1>..
+- dkdkdkdk<6>(k)*12<1>d...
+
+

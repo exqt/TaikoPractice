@@ -1,0 +1,6 @@
+options:
+  bpm: 168
+patterns:
+- ddddkkddkkddkkddkkkkddkkddkkddkk ddddkkdkddddkkdk(<6>ddd<4>ddkkdk)*2 ddkkdkdkddkkdkdk (<6>ddd<4>dd)*2 <6>(d)*12 <1>d...
+- "dd.k.dd.k..dd.k.ddkkddkkdkkdkkdkdkkkdkdkdkkkdkdkddkkddkkdkkdkkdkdd.k.d.kk..dd.k.ddkkddkkdkkdkkdkdkkkdkdkdkkkdkdkkkddkkddkkddkkdd
+   dkkkddkkdkkdkkddkdddkkddkddkddkddkkdkkddkddkddkk dd.kk.dd.kkddkk.ddkkddkkdkkdkkddkkddkkddkddkddkddkkkdkdkdkkkdkdkddkkdkdkdkdk<6>dkdkdk<1>d..."

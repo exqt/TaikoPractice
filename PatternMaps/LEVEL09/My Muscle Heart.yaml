@@ -1,4 +1,5 @@
 options:
   bpm: 140
 patterns:
-- <6>(kkkddd)*3kkkd..
+- <6>(kkkddd)*3kkkd..<1>....
+
