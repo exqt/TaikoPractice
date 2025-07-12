@@ -1,0 +1,22 @@
+options:
+  badFail: true
+  onFail: RestartBar
+  patternShuffle: Bag
+  minimumNotes: 500
+patterns:
+- (dddd)*8
+- (dddk)*8
+- (ddkd)*8
+- (ddkk)*8
+- (dkdd)*8
+- (dkdk)*8
+- (dkkd)*8
+- (dkkk)*8
+- (kddd)*8
+- (kddk)*8
+- (kdkd)*8
+- (kdkk)*8
+- (kkdd)*8
+- (kkdk)*8
+- (kkkd)*8
+- (kkkk)*8

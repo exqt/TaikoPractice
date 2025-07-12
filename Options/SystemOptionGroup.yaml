@@ -1,4 +1,4 @@
-audioBackend: WASAPI
+audioBackend: ASIO
 metronomeVolume: 1
 hitSoundVolume: 1
 judgeOffset: 0

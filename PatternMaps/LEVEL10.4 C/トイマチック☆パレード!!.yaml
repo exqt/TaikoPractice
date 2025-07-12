@@ -1,6 +1,12 @@
+description: last Go-Go Time / BPM 270, 280 part
 options:
   bpm: 280
 patterns:
+# 270
+- d.k.d.k.d.k.k.d.d.k.k.d.k.d.d.k.d.k.d.k.d.k.k.d.d.k.k.d.k.ddd.k.
+- d.k.d.k.d.k.k.d.d.k.k.d.k.d.d.k.d.d.k.k.d.k.k.d.d.k.k.d.d.kkd.k.
+- d.d.k.d.k.k.d.k.k.d.k.d.d.k.d.k.d.d.k.k.d.k.k.d.d.k.k.d.d.kkd.k.
+# 280
 - d.k.d.k.d.k.k.d.d.kkk.d.k.k.d.k.d.d.k.k.d.k.d.k.k.d.d.k.d.ddk.k.
 - d.k.d.k.d.k.k.d.d.kkk.k.d.d.k.k.d.d.k.k.d.k.k.d.d.k.k.d.d.kkk.k.
 - d.d.k.d.k.k.d.k.k.d.k.d.d.k.d.k.d.d.k.k.d.k.k.d.d.k.k.d.d.kkd.k.
