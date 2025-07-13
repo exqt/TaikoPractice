@@ -1,5 +1,5 @@
 options:
-  bpm: 170
-  speed: 0.25
+  bpm: 85
+  speed: 0.5
 patterns:
-- <4>d.d.k.d.k.d.kkd.k.ddd.d.ddkdk.d.d.d.k.d.k.d.ddk.d.kk.kk.kk.kk.k.d.d.k.d.ddk.ddk.dkddkdkdddkdkddk<1>d...
+- <8>d.d.k.d.k.d.kkd.k.ddd.d.ddkdk.d.d.d.k.d.k.d.ddk.d.kk.kk.kk.kk.k.d.d.k.d.ddk.ddk.dkddkdkdddkdkddk<1>d...
