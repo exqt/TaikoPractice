@@ -191,7 +191,7 @@ public class GraphicsSettingOptionGroup : OptionGroup
 public class SystemOptionGroup : OptionGroupGlobal<SystemOptionGroup>
 {
     [OptionDesc("Audio Backend", "Audio backend to use", "AudioBackends")]
-    public string audioBackend = "WASAPI";
+    public AudioBackend audioBackend = AudioBackend.WASAPI;
 
     // [OptionDesc("Audio Buffer Size", "Size of the audio buffer", "AudioBufferSizes")]
     // public int audioBufferSize = 64;

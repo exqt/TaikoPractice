@@ -64,14 +64,14 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        string outputType = systemOptionGroup.audioBackend;
+        var outputType = systemOptionGroup.audioBackend;
 
         FMOD.OUTPUTTYPE outputTypeEnum;
-        if (outputType == "WASAPI")
+        if (outputType == AudioBackend.WASAPI)
         {
             outputTypeEnum = FMOD.OUTPUTTYPE.WASAPI;
         }
-        else if (outputType == "ASIO")
+        else if (outputType == AudioBackend.ASIO)
         {
             outputTypeEnum = FMOD.OUTPUTTYPE.ASIO;
         }
