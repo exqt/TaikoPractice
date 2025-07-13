@@ -3,3 +3,4 @@ metronomeVolume: 1
 hitSoundVolume: 1
 judgeOffset: 0
 metronomeOffset: 0
+drawOffset: 0

@@ -207,6 +207,9 @@ public class SystemOptionGroup : OptionGroupGlobal<SystemOptionGroup>
 
     [OptionDesc("Metronome Offset", "Offset for the metronome timing", "TimeOffsets")]
     public int metronomeOffset = 0;
+
+    [OptionDesc("Draw Offset", "Offset for the draw timing", "TimeOffsets")]
+    public int drawOffset = 0;
 }
 
 public class RecordingOptionGroup : OptionGroup

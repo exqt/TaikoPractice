@@ -26,9 +26,13 @@ public class HorizontalNoteLaneUI : MonoBehaviour
     [Header("Sprite")]
     public NoteSkin noteSkin;
 
+    float drawOffset = 0f;
+
     void Start()
     {
         // ClearNoteObjects();
+        var systemOptionGroup = SystemOptionGroup.Load();
+        drawOffset = systemOptionGroup.drawOffset / 1000f;
     }
 
     void Update()
@@ -149,7 +153,7 @@ public class HorizontalNoteLaneUI : MonoBehaviour
         if (songPlay == null) return;
         if (!isStarted) return;
 
-        double x = -(Consts.ONE_BEAT_SCALE * songPlay.CurrentTime * (bpm / 60f)) * speed;
+        double x = -(Consts.ONE_BEAT_SCALE * (songPlay.CurrentTime + drawOffset) * (bpm / 60f)) * speed;
         noteContainer.transform.localPosition = new Vector3((float)x, 0, 0);
         lineContainer.transform.localPosition = new Vector3((float)x, 0, 0);
 
