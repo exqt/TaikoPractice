@@ -20,6 +20,7 @@ public class MainScene : MonoBehaviour
 
     public UIOptionGroup playOptionGroupUI;
     public UIOptionGroup systemOptionGroupUI;
+    public UIOptionGroup recordingOptionGroupUI;
 
 #if UNITY_EDITOR || UNITY_STANDALONE
     FileSystemWatcher patternMapWatcher;
@@ -114,8 +115,8 @@ public class MainScene : MonoBehaviour
 
     public void OnPressRecordPlay()
     {
-        var globalPlayOption = PatternPracticeOptionGroup.Load();
-        RecordSceneContext.Instance.bpm = globalPlayOption?.bpm ?? 120;
+        var optionGroup = recordingOptionGroupUI.GetOptionGroup() as RecordingOptionGroup;
+        RecordSceneContext.Instance.bpm = optionGroup?.bpm ?? 120;
         RecordSceneContext.Instance.songPlay = null;
         SceneUtil.LoadScene("RecordScene");
     }

@@ -208,3 +208,9 @@ public class SystemOptionGroup : OptionGroupGlobal<SystemOptionGroup>
     [OptionDesc("Metronome Offset", "Offset for the metronome timing", "TimeOffsets")]
     public int metronomeOffset = 0;
 }
+
+public class RecordingOptionGroup : OptionGroup
+{
+    [OptionDesc("BPM", "Beats Per Minute", "BPM")]
+    public int? bpm;
+}

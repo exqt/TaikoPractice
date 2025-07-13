@@ -124,6 +124,11 @@ public class UIOptionGroup : MonoBehaviour, ITaikoUIMove
                 var systemSetting = SystemOptionGroup.Load();
                 BindOptions(systemSetting);
                 break;
+            case "RecordingGroup":
+                var recordingOptionGroup = new RecordingOptionGroup();
+                recordingOptionGroup.bpm = globalPlayOption?.bpm ?? 120;
+                BindOptions(recordingOptionGroup);
+                break;
             default:
                 Debug.LogError($"Unknown group name: {groupName}");
                 break;
