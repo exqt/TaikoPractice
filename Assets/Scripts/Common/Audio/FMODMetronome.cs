@@ -113,13 +113,11 @@ public class FMODMetronome
         int samplesCount = samples.Length;
         int offsetInSamples = (int)(offset * sampleRate);
 
-        byte[] rotatedSamples = new byte[samplesCount * 2];
+        float[] rotatedSamples = new float[samplesCount];
         for (int i = 0; i < samplesCount; i++)
         {
             int index = (i + offsetInSamples + samplesCount) % samplesCount;
-            short sample = (short)(samples[index] * short.MaxValue);
-            rotatedSamples[i * 2] = (byte)(sample & 0xFF);
-            rotatedSamples[i * 2 + 1] = (byte)((sample >> 8) & 0xFF);
+            rotatedSamples[i] = samples[index];
         }
 
         CREATESOUNDEXINFO exinfo = new()
@@ -128,10 +126,10 @@ public class FMODMetronome
             length = (uint)rotatedSamples.Length,
             numchannels = 1,
             defaultfrequency = sampleRate,
-            format = SOUND_FORMAT.PCM16
+            format = SOUND_FORMAT.PCMFLOAT
         };
 
-        RESULT result = RuntimeManager.CoreSystem.createSound(rotatedSamples,
+        RESULT result = RuntimeManager.CoreSystem.createSound(Marshal.UnsafeAddrOfPinnedArrayElement(rotatedSamples, 0),
             MODE.OPENMEMORY | MODE.OPENRAW | MODE.CREATESAMPLE,
             ref exinfo, out var sound);
         if (result != FMOD.RESULT.OK)
