@@ -12,6 +12,7 @@ public enum OnFailAction
     RestartMap,
     RestartPattern,
     RestartBar,
+    RestartTwoBar,
     Result,
 }
 

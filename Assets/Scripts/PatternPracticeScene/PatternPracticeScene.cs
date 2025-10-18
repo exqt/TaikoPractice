@@ -319,7 +319,8 @@ public partial class PatternPracticeScene : MonoBehaviour
             SceneUtil.ReloadCurrentScene();
         }
         else if (onFail == OnFailAction.RestartPattern ||
-            onFail == OnFailAction.RestartBar)
+            onFail == OnFailAction.RestartBar ||
+            onFail == OnFailAction.RestartTwoBar)
         {
             SetRestartPoint();
             SceneUtil.ReloadCurrentScene();
@@ -355,6 +356,15 @@ public partial class PatternPracticeScene : MonoBehaviour
             double beatInterval = 60f / songPlay.bpm;
             double barInterval = 4 * beatInterval; // 4 beats per bar
             double barStartTime = Math.Floor(failedTime / barInterval) * barInterval;
+            PatternPracticeSceneContext.Instance.songBeginTime = barStartTime;
+            return;
+        }
+        else if (onFail == OnFailAction.RestartTwoBar)
+        {
+            double beatInterval = 60f / songPlay.bpm;
+            double barInterval = 4 * beatInterval; // 4 beats per bar
+            double barStartTime = Math.Floor(failedTime / barInterval) * barInterval;
+            barStartTime = Math.Max(0, barStartTime - barInterval);
             PatternPracticeSceneContext.Instance.songBeginTime = barStartTime;
             return;
         }
