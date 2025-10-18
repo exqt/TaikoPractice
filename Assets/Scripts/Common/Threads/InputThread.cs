@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Events;
+// Reference KeyBindingProvider defined in Common/Input
 
 public class InputThread : ThreadBase
 {
@@ -11,13 +12,7 @@ public class InputThread : ThreadBase
     private static extern short GetAsyncKeyState(int vKey);
     #endregion
 
-    readonly Dictionary<TaikoKeyType, char[]> keyToChars = new Dictionary<TaikoKeyType, char[]>()
-    {
-        { TaikoKeyType.LEFT_KA, new char[] { 'E', 'D' } },
-        { TaikoKeyType.LEFT_DON, new char[] { 'R', 'F' } },
-        { TaikoKeyType.RIGHT_DON, new char[] { 'I', 'J' } },
-        { TaikoKeyType.RIGHT_KA, new char[] { 'O', 'K' } }
-    };
+    Dictionary<TaikoKeyType, int[]> keyMap = new Dictionary<TaikoKeyType, int[]>();
 
     readonly bool[] state = new bool[256];
 
@@ -27,6 +22,7 @@ public class InputThread : ThreadBase
     public InputThread()
     {
         Debug.Log("InputThread created");
+        keyMap = KeyBindingProvider.Instance.GetSnapshot();
     }
 
     //  값
@@ -36,20 +32,14 @@ public class InputThread : ThreadBase
     // 0x8001 이전에 누른 적이 있고 호출 시점에도 눌려있는 상태
     protected override void Update()
     {
-        foreach (var pair in keyToChars)
+        foreach (var pair in keyMap)
         {
-            var key = (int)pair.Key;
-            foreach (var c in pair.Value)
+            foreach (var vk in pair.Value)
             {
-                var prevState = state[c];
-                var currState = (GetAsyncKeyState(c) & 0x8000) != 0;
-
-                if (!prevState && currState)
-                {
-                    OnKeyPressed?.Invoke(pair.Key);
-                }
-
-                state[c] = currState;
+                var prevState = state[vk];
+                var currState = (GetAsyncKeyState(vk) & 0x8000) != 0;
+                if (!prevState && currState) OnKeyPressed?.Invoke(pair.Key);
+                state[vk] = currState;
             }
         }
 

@@ -13,6 +13,7 @@ public class MainScene : MonoBehaviour
     public UIOptionGroup recordOptionGroup;
     public InputActionAsset inputActionAsset;
     public GameObject keepHoldingEscPanel;
+    public KeyRebindManager keyRebindManager;
 
     InputAction escapeAction, reloadAction;
     float escapeHoldStartTime = -1f;
@@ -47,6 +48,9 @@ public class MainScene : MonoBehaviour
             patternMapWatcher.EnableRaisingEvents = true;
         }
 #endif
+
+        KeyBindingProvider.Instance = new KeyBindingProvider();
+        KeyBindingProvider.Instance.UpdateKeyBindings(inputActionAsset);
     }
 
     void Start()
@@ -140,6 +144,11 @@ public class MainScene : MonoBehaviour
 
         playOptionGroup.Save();
         systemOptionGroup.Save();
+    }
+
+    public void OnClickBindKeys()
+    {
+        StartCoroutine(keyRebindManager.StartBind());
     }
 
 #if UNITY_EDITOR || UNITY_STANDALONE
