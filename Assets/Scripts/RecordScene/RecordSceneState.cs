@@ -119,7 +119,7 @@ public partial class RecordScene
 
     public class MovingState : RecordSceneState
     {
-        readonly InputAction movePrevAction, moveNextAction, selectAction;
+        readonly InputAction movePrevAction, moveNextAction, leftDonAction, rightDonAction;
         readonly InputAction escapeAction;
 
         public MovingState(RecordScene scene, InputActionAsset inputActionAsset)
@@ -128,7 +128,8 @@ public partial class RecordScene
             var map = inputActionAsset.FindActionMap("Drum");
             movePrevAction = map.FindAction("LeftKa");
             moveNextAction = map.FindAction("RightKa");
-            selectAction = map.FindAction("Don");
+            leftDonAction = map.FindAction("LeftDon");
+            rightDonAction = map.FindAction("RightDon");
             escapeAction = map.FindAction("Escape");
         }
 
@@ -147,7 +148,8 @@ public partial class RecordScene
             {
                 scene.laneContainer.MoveDownLane();
             }
-            else if (selectAction.WasPressedThisFrame())
+            else if (leftDonAction.WasPressedThisFrame() ||
+                     rightDonAction.WasPressedThisFrame())
             {
                 SceneUtil.BackToMainScene();
             }
