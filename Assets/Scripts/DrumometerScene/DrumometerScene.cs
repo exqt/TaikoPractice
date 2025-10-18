@@ -6,10 +6,12 @@ using System.Collections.ObjectModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+// Uses StrokeMode defined in DrumometerScene folder
 
 public class DrumometerSceneContext : SceneContext<DrumometerSceneContext>
 {
     public int duration = 5; // 측정 시간(초)
+    public StrokeMode strokeMode = StrokeMode.Single;
 }
 
 public partial class DrumometerScene : MonoBehaviour
@@ -37,6 +39,7 @@ public partial class DrumometerScene : MonoBehaviour
     double startTime = 0;
     HandType lastHand = HandType.None;
     double finishedMenuShowTime = 2f;
+    StrokeMode strokeMode => DrumometerSceneContext.Instance.strokeMode;
 
     // === Properties ===
     public double Duration { get; set; }
@@ -71,8 +74,8 @@ public partial class DrumometerScene : MonoBehaviour
         };
         Duration = DrumometerSceneContext.Instance.duration;
         StartCoroutine(AwakeCoroutine());
-
-        BestCount = DrumometerBest.GetBestCount(DrumometerSceneContext.Instance.duration);
+        BestCount = DrumometerBest.GetBestCount(
+            DrumometerSceneContext.Instance.duration, strokeMode);
     }
 
     void Start()
@@ -148,8 +151,8 @@ public partial class DrumometerScene : MonoBehaviour
 
         var audioManager = AudioManager.Instance;
         var hand = TypeConverter.ToHandType(key);
-
-        if (lastHand == hand) return;
+        // Single mode: enforce alternating hands
+        if (strokeMode == StrokeMode.Single && lastHand == hand) return;
 
         lastHand = hand;
         hitCount++;

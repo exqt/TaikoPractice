@@ -16,6 +16,8 @@ public enum JudgeType { None, Good, Ok, Bad }
 
 public enum CrownType { Rainbow, Gold, Silver, None }
 
+public enum StrokeMode { Single, Multiple }
+
 public static class TypeConverter
 {
     public static NoteType ToNoteType(this TaikoKeyType key)

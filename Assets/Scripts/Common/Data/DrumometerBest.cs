@@ -1,6 +1,7 @@
 using System;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
+// StrokeMode enum used for differentiating single vs multiple stroke records
 
 public class DrumometerBest
 {
@@ -8,6 +9,10 @@ public class DrumometerBest
     public int best10;
     public int best30;
     public int best60;
+    public int multiBest5;   // Multiple stroke mode
+    public int multiBest10;
+    public int multiBest30;
+    public int multiBest60;
 
     static readonly string path = "Score/drumometer.yaml";
 
@@ -49,6 +54,23 @@ public class DrumometerBest
         };
     }
 
+    public static int GetBestCount(int duration, StrokeMode mode)
+    {
+        var d = Load();
+        if (mode == StrokeMode.Multiple)
+        {
+            return duration switch
+            {
+                5 => d.multiBest5,
+                10 => d.multiBest10,
+                30 => d.multiBest30,
+                60 => d.multiBest60,
+                _ => 0
+            };
+        }
+        return GetBestCount(duration);
+    }
+
     public static void SetBestCount(int duration, int count)
     {
         var drumometerBest = Load();
@@ -68,5 +90,30 @@ public class DrumometerBest
                 break;
         }
         Save(drumometerBest);
+    }
+
+    public static void SetBestCount(int duration, int count, StrokeMode mode)
+    {
+        var d = Load();
+        if (mode == StrokeMode.Multiple)
+        {
+            switch (duration)
+            {
+                case 5:
+                    d.multiBest5 = Math.Max(d.multiBest5, count);
+                    break;
+                case 10:
+                    d.multiBest10 = Math.Max(d.multiBest10, count);
+                    break;
+                case 30:
+                    d.multiBest30 = Math.Max(d.multiBest30, count);
+                    break;
+                case 60:
+                    d.multiBest60 = Math.Max(d.multiBest60, count);
+                    break;
+            }
+        }
+        else SetBestCount(duration, count);
+        Save(d);
     }
 }

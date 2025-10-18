@@ -80,7 +80,10 @@ public partial class DrumometerScene
                 $"Max BPM: {(int)maxBpm}"
             );
 
-            DrumometerBest.SetBestCount(DrumometerSceneContext.Instance.duration, scene.hitCount);
+            DrumometerBest.SetBestCount(
+                DrumometerSceneContext.Instance.duration,
+                scene.hitCount,
+                DrumometerSceneContext.Instance.strokeMode);
 
         }
     }
