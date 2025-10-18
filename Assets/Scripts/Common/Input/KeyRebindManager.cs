@@ -7,6 +7,7 @@ using UnityEngine;
 using Debug = UnityEngine.Debug;
 using TMPro;
 using UnityEditor;
+using System.IO;
 
 public class KeyRebindManager : MonoBehaviour
 {
@@ -27,9 +28,9 @@ public class KeyRebindManager : MonoBehaviour
     void Awake()
     {
         promptUI.SetActive(false);
-        var json = FileManager.Instance.ReadFile(KeyBindingPath);
-        if (!string.IsNullOrEmpty(json))
+        if (FileManager.Instance.ExistsFile(KeyBindingPath))
         {
+            var json = FileManager.Instance.ReadFile(KeyBindingPath);
             asset.LoadBindingOverridesFromJson(json);
             KeyBindingProvider.Instance.UpdateKeyBindings(asset);
             Debug.Log("Loaded key bindings from file.");
