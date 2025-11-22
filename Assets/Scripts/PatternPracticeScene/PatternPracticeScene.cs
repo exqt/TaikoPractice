@@ -120,10 +120,13 @@ public partial class PatternPracticeScene : MonoBehaviour
         targetAccuracy = option?.targetAccuracy ?? 0.0f;
         onFail = option?.onFail ?? OnFailAction.None;
         var modifier = option?.modifier ?? NoteModifier.None;
+        var beat = PatternPracticeSceneContext.Instance.fumenPatternMap.TimeSignature;
+        var beatNote = beat % 10;
+        var beatPerBar = beat / 10;
 
         int seed = context.seed;
         var (_notes, intervalStarts) = patternLanguage.GetNotes(
-            bpm, minimumNotes, 4, modifier,
+            bpm, minimumNotes, beatPerBar, modifier,
             patternShuffle: option?.patternShuffle ?? PatternShuffle.None,
             seed: seed
         );
@@ -138,7 +141,7 @@ public partial class PatternPracticeScene : MonoBehaviour
             notes.Add(note);
         }
 
-        var fumen = new Fumen(map?.Name, notes, intervalStarts);
+        var fumen = new Fumen(map?.Name, notes, intervalStarts, beatNote, beatPerBar);
         songPlay = new SongPlay(fumen, bpm, option);
 
         judgeStatisticUI.SetData(songPlay.judgeStatistic);
@@ -149,7 +152,7 @@ public partial class PatternPracticeScene : MonoBehaviour
 
         var systemOption = SystemOptionGroup.Load();
         var metronomeOffset = systemOption.metronomeOffset;
-        metronome = new FMODMetronome((float)bpm, metronomeOffset);
+        metronome = new FMODMetronome((float)bpm, metronomeOffset, beatPerBar, beatNote);
         judgeOffsetMS = systemOption.judgeOffset / 1000f;
 
         autoPlayer = new AutoPlayer(inputThread, songPlay, this);

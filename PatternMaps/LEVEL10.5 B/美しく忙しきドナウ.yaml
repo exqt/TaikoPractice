@@ -1,0 +1,7 @@
+timeSignature: 34
+options:
+  bpm: 210
+patterns:
+- <3>(dkkdkdd.k)*2 dkkdkddkddddkkkdkd (dkkdkddkk)*4 <1>d..
+- (<3>dkkdk<6>dd<3>dkk)*4 <1>d..
+

@@ -124,7 +124,7 @@ public class HorizontalNoteLaneUI : MonoBehaviour
 
         for (int i = 0; i < nBeats; i++)
         {
-            if (i % 4 != 0) continue;
+            if (i % (4 * fumen.beatPerBar / fumen.beatNote) != 0) continue;
 
             var o = Instantiate(linePrefab);
             o.transform.SetParent(lineContainer.transform);
@@ -134,8 +134,7 @@ public class HorizontalNoteLaneUI : MonoBehaviour
             o.transform.localScale = new Vector3(1, 1, 1);
 
             var img = o.GetComponent<Image>();
-            if (i % 4 == 0) img.color = new Color(1, 1, 1, 1f);
-            else img.color = new Color(1, 1, 1, 0.1f);
+            img.color = new Color(1, 1, 1, 1f);
         }
     }
 

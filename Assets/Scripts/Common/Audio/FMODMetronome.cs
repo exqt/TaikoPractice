@@ -10,6 +10,9 @@ public class FMODMetronome
 {
     readonly float bpm = 120f;
 
+    readonly int beatPerBar = 4;
+    readonly int beatNote = 4;
+
     private int sampleRate;
 
     readonly float[] samples = null;
@@ -20,10 +23,12 @@ public class FMODMetronome
 
     AudioManager audioManager;
 
-    public FMODMetronome(float bpm = 120f, float offsetInMS = 0f)
+    public FMODMetronome(float bpm = 120f, float offsetInMS = 0f, int beatPerBar = 4, int beatNote = 4)
     {
         this.bpm = bpm;
-        samples = CreateMetronomeSoundSamples(bpm);
+        this.beatPerBar = beatPerBar;
+        this.beatNote = beatNote;
+        samples = CreateMetronomeSoundSamples(bpm * beatNote / 4);
 
         sound = CreateFMODSound(samples, offsetInMS / 1000f);
         sound.setMode(MODE.LOOP_NORMAL | MODE.OPENMEMORY | MODE.OPENRAW | MODE.CREATESAMPLE);
@@ -63,7 +68,7 @@ public class FMODMetronome
 #region
     float[] CreateMetronomeSoundSamples(float bpm)
     {
-        int beats = 4;
+        int beats = beatPerBar;
         int repeatCount = 16; // Repeat the measure 16 times
         float beatIntervalSec = 60f / bpm;
         float beatDuration = beatIntervalSec * beats; // 4 beats for a full measure

@@ -66,6 +66,9 @@ public class FMODTest : MonoBehaviour
                 return;
             }
         }
+        {
+            FMOD.Factory.System_Create(out coreSystem);
+        }
 
         {
             var res = studioSystem.getCoreSystem(out coreSystem);
@@ -78,7 +81,7 @@ public class FMODTest : MonoBehaviour
 
 
         {
-            var res = coreSystem.setDSPBufferSize(64, 2);
+            var res = coreSystem.setDSPBufferSize(1024, 2);
             if (res != FMOD.RESULT.OK)
             {
                 Debug.LogError("Failed to set DSP buffer size: " + res);
@@ -96,7 +99,7 @@ public class FMODTest : MonoBehaviour
         }
 
         {
-            var res = coreSystem.setOutput(FMOD.OUTPUTTYPE.ASIO);
+            var res = coreSystem.setOutput(FMOD.OUTPUTTYPE.WASAPI);
             if (res != FMOD.RESULT.OK)
             {
                 Debug.LogError("Failed to set output type: " + res);

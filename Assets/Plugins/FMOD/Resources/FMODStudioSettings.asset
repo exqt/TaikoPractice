@@ -44,16 +44,16 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     VirtualChannelCount:
-      Value: 0
-      HasValue: 0
+      Value: 32
+      HasValue: 1
     RealChannelCount:
-      Value: 0
-      HasValue: 0
+      Value: 16
+      HasValue: 1
     DSPBufferLength:
       Value: 64
       HasValue: 1
     DSPBufferCount:
-      Value: 4
+      Value: 2
       HasValue: 1
     Plugins:
       Value: []
@@ -120,10 +120,10 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     VirtualChannelCount:
-      Value: 1024
+      Value: 32
       HasValue: 1
     RealChannelCount:
-      Value: 256
+      Value: 16
       HasValue: 1
     DSPBufferLength:
       Value: 64

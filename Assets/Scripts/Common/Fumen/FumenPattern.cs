@@ -11,9 +11,12 @@ public class FumenPatternMap
     public string Description { get; set; } = string.Empty;
 
     [YamlMember(Order = 3)]
-    public PatternPracticeOptionGroup options = new();
+    public int TimeSignature { get; set; } = 44;
 
     [YamlMember(Order = 4)]
+    public PatternPracticeOptionGroup options = new();
+
+    [YamlMember(Order = 5)]
     public List<string> Patterns { get; set; } = new List<string>();
 
     public ulong GetLongHashCode()

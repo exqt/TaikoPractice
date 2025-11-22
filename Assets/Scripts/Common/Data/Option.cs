@@ -166,12 +166,16 @@ public class PatternPracticeOptionGroup : OptionGroupGlobal<PatternPracticeOptio
     [OptionDesc("Pattern Shuffle", "Shuffle patterns in practice mode", "PatternShuffles")]
     public PatternShuffle patternShuffle = PatternShuffle.None;
 
+    [OptionDesc("Beat", "Beat of the pattern", "Beats")]
+    public int? beat;
+
     public PatternPracticeOptionGroup GetDefault()
     {
         return new PatternPracticeOptionGroup
         {
             bpm = 120,
             speed = 1.0f,
+            beat = 44,
             minimumNotes = 300,
             targetAccuracy = 0.00f,
             onFail = OnFailAction.None,
